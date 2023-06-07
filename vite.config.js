@@ -6,3 +6,4 @@ export default defineConfig({
   base: "https://luisg210.github.io/node-front/",
   plugins: [react()],
 })
+ 
