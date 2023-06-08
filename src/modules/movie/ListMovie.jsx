@@ -177,15 +177,15 @@ export const ListMovie = () => {
               <div className="card">
                 <img
                   src={`data:image/jpeg;base64,${m.image}`}
-                  width="160"
-                  className="img-fluid justify-center img-card"
-                  alt="..."
+                  className="justify-center img-card"
+                  alt={m.title}
+                  title={m.title}
                 />
 
                 <div className="card-body">
                   <h5 className="card-title">{m.title}</h5>
                   <p className="card-text">
-                    {m.description.substring(0, 20)}...
+                    {m.description.length < 20 ? m.description : m.description.substring(0, 20)}...
                   </p>
 
                   <p className="card-text">
@@ -392,7 +392,8 @@ export const ListMovie = () => {
                   src={`data:image/jpeg;base64,${movieData.img64}`}
                   width="160"
                   className="img-fluid justify-center img-card"
-                  alt="..."
+                  alt={movieData.title}
+                  title={movieData.title}
                 />
                 </div>
               </div>
@@ -401,7 +402,7 @@ export const ListMovie = () => {
                 <div className="col-lg-6 col-md-4 form-group">
                   <label>Titulo</label>
                   <input
-                    required
+                    readOnly
                     value={movieData.title}
                     name="title"
                     onChange={onChange}
@@ -414,7 +415,7 @@ export const ListMovie = () => {
                   <label>Precio venta</label>
                   <input
                     value={movieData.sale_price}
-                    required
+                    readOnly
                     name="sale_price"
                     onChange={onChange}
                     type="text"
@@ -429,7 +430,7 @@ export const ListMovie = () => {
                   <input
                     value={movieData.stock}
                     name="stock"
-                    required
+                    readOnly
                     onChange={onChange}
                     type="number"
                     className="form-control"
@@ -441,7 +442,7 @@ export const ListMovie = () => {
                   <input
                     value={movieData.rental_price}
                     name="rental_price"
-                    required
+                    readOnly
                     onChange={onChange}
                     type="text"
                     className="form-control"
@@ -454,7 +455,7 @@ export const ListMovie = () => {
                   <label>Descripcion</label>
                   <input
                     value={movieData.description}
-                    required
+                    readOnly
                     name="description"
                     onChange={onChange}
                     type="text"
